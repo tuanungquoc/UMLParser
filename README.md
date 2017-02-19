@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/carlo379/UMLParser.png?label=ready&title=Ready)](http://waffle.io/carlo379/UMLParser)
 # UML Parser
 #### By Carlos Martinez
 
