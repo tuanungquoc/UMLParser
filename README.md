@@ -6,6 +6,12 @@
 In this project we will create a Parser to convert Java to UML (Class Diagram).  We will use Agile (Kanban board) to manage all
 User Stories or Task and produce weekly reports.
 
+## Requirements
+* The parser must be a command line application following this format:
+```
+umlparser <source folder> <output file name>
+```
+
 ## Project Tracking
 * Waffle IO
 * Github / Github Issues
