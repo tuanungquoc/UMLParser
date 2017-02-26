@@ -33,9 +33,9 @@ For this project I will use Python to perform the convertion of Java to UML:
 ### Integrate Java Parser and UML Parser
 
 ### Research
-* yuml: is a tool written in python to create UML following a simple format.  Code can be found at the github\
+* yuml: is a tool written in python to create UML following a simple format.  Code can be found at the github
 repo at [yUML](https://github.com/wandernauta/yuml)
-* UMLGraph: is a tool written in JAVA for creating UML out of java files.  The java files need to be decorated with\
-"javadoc" tags to provide additional information for correct drawing of diagrams.\
+* UMLGraph: is a tool written in JAVA for creating UML out of java files.  The java files need to be decorated with
+"javadoc" tags to provide additional information for correct drawing of diagrams.
 **[UMLGraph](https://www.spinellis.gr/umlgraph/)
 **[Github Repo for UMLGraph](https://github.com/dspinellis/UMLGraph)
