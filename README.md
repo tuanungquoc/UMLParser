@@ -24,14 +24,14 @@ For this project I will use Python to perform the convertion of Java to UML:
 * Python 3.6
 * Anaconda 3
 * JavaParser from javaparser.org
-* UML Parser textuml
+* UMLGraph
 
 ### Test Java Parser
 - Installed JavaParser and Java Symbol Solver using Gradle and Maven
 - Read the documentation trying to understand how it's usage apply to the project
 
 ### Test UML Parser
-
+- Downloaded and installed UMLGraph.  The location in the project definition had an error; the correct link is [UMLGraph](https://www.spinellis.gr/umlgraph/)
 ### Integrate Java Parser and UML Parser
 
 ### Research
