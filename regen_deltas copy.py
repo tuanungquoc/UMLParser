@@ -22,7 +22,6 @@ import logging.config
 
 # CSV file columns
 
-
 def usage():
     print('usage: umlparser.py <source folder> <output file name>')
     print('example: python3 umlparser.py /dir/Test.java /output/test.png')
@@ -57,4 +56,7 @@ if __name__ == "__main__":
     main(sys.argv[1:])
 
 def parse_uml(self,source,output):
+    # LOGGER Instantiation:  This has to be done in every module to allow logging
+    logger = logging.getLogger(__name__)
+    logger.info("Received source and output:"+source + output)
     pass
