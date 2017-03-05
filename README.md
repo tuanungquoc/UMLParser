@@ -27,6 +27,8 @@ For this project I will use Python to perform the convertion of Java to UML:
 * UML Parser textuml
 
 ### Test Java Parser
+- Installed JavaParser and Java Symbol Solver using Gradle and Maven
+- Read the documentation trying to understand how it's usage apply to the project
 
 ### Test UML Parser
 
