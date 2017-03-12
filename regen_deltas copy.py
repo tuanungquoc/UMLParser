@@ -19,6 +19,8 @@ import xml.etree.ElementTree as ET
 import zipfile
 import logging
 import logging.config
+from urllib.request import urlretrieve
+from os.path import isfile, isdir
 
 # CSV file columns
 
