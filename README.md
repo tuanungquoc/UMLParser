@@ -41,3 +41,7 @@ repo at [yUML](https://github.com/wandernauta/yuml)
 "javadoc" tags to provide additional information for correct drawing of diagrams.
 **[UMLGraph](https://www.spinellis.gr/umlgraph/)
 **[Github Repo for UMLGraph](https://github.com/dspinellis/UMLGraph)
+
+### Updates
+* Decided on UMLGraph and JavaParser
+* Installing and Updating system to support these two programs
