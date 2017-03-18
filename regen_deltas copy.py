@@ -23,7 +23,7 @@ from urllib.request import urlretrieve
 from os.path import isfile, isdir
 import argparse
 from datetime import datetime
-
+import utils as Utilities
 
 # CSV file columns
 
@@ -70,11 +70,9 @@ def parse_uml(source,output):
     logger = logging.getLogger(__name__)
     logger.info("Received source and output: %s %s",source, output)
 
-    dest_directory = source
-    if not os.path.exists(dest_directory):
-        os.makedirs(dest_directory)
+    # Record time before computation
+    time_before = Utilities.current_milli_time()
 
-    output_directory = output
-    if not os.path.exists(output_directory):
-        os.makedirs(output_directory)
+    # Create or Erase Directories
+    Utilities.create_directories()
 
