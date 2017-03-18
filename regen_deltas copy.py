@@ -52,7 +52,7 @@ def main(argv):
     parser.add_argument("-s", "--source", help="source directory")
     parser.add_argument("-o", "--output", help="output directory")
     args = parser.parse_args()
-    print("args:", args)
+    logger.info("args: %s", args)
 
     source = args.source
     output = args.output
@@ -65,7 +65,16 @@ def main(argv):
 if __name__ == "__main__":
     main(sys.argv[1:])
 
-def parse_uml(self,source,output):
+def parse_uml(source,output):
     # LOGGER Instantiation:  This has to be done in every module to allow logging
     logger = logging.getLogger(__name__)
-    logger.info("Received source and output:"+source + output)
+    logger.info("Received source and output: %s %s",source, output)
+
+    dest_directory = source
+    if not os.path.exists(dest_directory):
+        os.makedirs(dest_directory)
+
+    output_directory = output
+    if not os.path.exists(output_directory):
+        os.makedirs(output_directory)
+
