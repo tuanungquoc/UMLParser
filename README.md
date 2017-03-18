@@ -45,3 +45,13 @@ repo at [yUML](https://github.com/wandernauta/yuml)
 ### Updates
 * Decided on UMLGraph and JavaParser
 * Installing and Updating system to support these two programs
+
+### Template System
+* Research on templates systems to help in structuring code that is going to be passed to the UMLGraph.
+  * [pystache](https://github.com/defunkt/pystache): is Mustache library adapted python.  It can help
+    create a file with the structure of the java code in the right format.  Code Example:
+    ```
+    print pystache.render('Hi {{person}}!', {'person': 'Mom'})
+    Hi Mom!
+    ```
+
