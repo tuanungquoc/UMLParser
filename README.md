@@ -54,4 +54,7 @@ repo at [yUML](https://github.com/wandernauta/yuml)
     print pystache.render('Hi {{person}}!', {'person': 'Mom'})
     Hi Mom!
     ```
+### Python Parsers
+Experimenting with a simpler python parser.  The java parser used are too complex for what we are trying to achieve.  I tried the plyj parser
+which takes a file and returns a java tree.  Initial test showed to be simple to use for class diagrams.
 
