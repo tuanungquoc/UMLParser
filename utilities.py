@@ -7,9 +7,6 @@ import shutil
 import string
 import time
 
-from src.utils.properties import Properties
-
-
 class Utilities:
     next_id = 1
     next_func = 0
