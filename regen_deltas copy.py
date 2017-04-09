@@ -10,8 +10,8 @@
 #   Class Diagram in png format
 
 import sys
-import javalang
 import plyj.parser as plyj
+import os
 
 # CSV file columns
 
@@ -24,8 +24,14 @@ def parse_uml():
 
     # parse a compilation unit from a string
     parser = plyj.Parser()
-    tree = parser.parse_file('./uml-parser-test-1/A.java')
-    print("Tree: "+tree.type_declarations[0].name)
+
+    treeArray = []
+    for dirpath, dnames, files in os.walk("./uml-parser-test-1/"):
+        for file in files:
+            if file.endswith(".java"):
+                treeArray.append(parser.parse_file('./uml-parser-test-1/'+file))
+
+    print("Tree: " + str(treeArray))
 
 # Main
 def main(argv):
