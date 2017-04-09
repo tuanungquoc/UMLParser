@@ -22,16 +22,29 @@ def usage():
 
 def parse_uml():
 
+    directory = './uml-parser-test-1'
+    # Parse all files from directory
+    treeArray = get_trees_from_dir(directory)
+
+    print("Tree: " + str(treeArray))
+
+def get_trees_from_dir(directory):
     # parse a compilation unit from a string
     parser = plyj.Parser()
 
+    # Variable to hold trees from files in directory
     treeArray = []
-    for dirpath, dnames, files in os.walk("./uml-parser-test-1/"):
-        for file in files:
-            if file.endswith(".java"):
-                treeArray.append(parser.parse_file('./uml-parser-test-1/'+file))
 
-    print("Tree: " + str(treeArray))
+    # Walk the directory passed into the function
+    for dirpath, dnames, files in os.walk(directory):
+        for file in files:
+
+            # Check if the file is a '.java' file
+            if file.endswith(".java"):
+                # Parse and store tree in array
+                treeArray.append(parser.parse_file('./uml-parser-test-1/' + file))
+
+    return treeArray
 
 # Main
 def main(argv):
