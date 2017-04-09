@@ -58,3 +58,7 @@ repo at [yUML](https://github.com/wandernauta/yuml)
 Experimenting with a simpler python parser.  The java parser used are too complex for what we are trying to achieve.  I tried the plyj parser
 which takes a file and returns a java tree.  Initial test showed to be simple to use for class diagrams.
 
+* Added os.walk to get all files in directory and perform the parsing.
+* Once the files are parsed the function return an array of parsed trees
+* Next:  Set relations in the format of the UML generator.
+
