@@ -11,6 +11,7 @@
 
 import sys
 import plyj.parser as plyj
+import javalang
 import os
 
 # CSV file columns
@@ -27,7 +28,7 @@ def parse_uml():
     treeArray = get_trees_from_dir(directory)
 
     for file in treeArray:
-        for clas in file.type_declarations:
+        for clas in file.types:
             print(clas.modifiers)
             print(clas.name)
             print(clas.extends)
@@ -35,15 +36,13 @@ def parse_uml():
             print(clas.body)
 #           Iterract thru body elements
             for element in clas.body:
-                for item in element.iter('modifiers'):
-                    print("FInaly")
+                print(element.modifiers)
                 print(element.type)
                 print(element.variable_declarators.variable.name)
                 print("END OF CLASS")
 
 def get_trees_from_dir(directory):
     # parse a compilation unit from a string
-    parser = plyj.Parser()
 
     # Variable to hold trees from files in directory
     treeArray = []
@@ -55,7 +54,7 @@ def get_trees_from_dir(directory):
             # Check if the file is a '.java' file
             if file.endswith(".java"):
                 # Parse and store tree in array
-                treeArray.append(parser.parse_file('./uml-parser-test-1/' + file))
+                treeArray.append(javalang.parse.parse(open('./uml-parser-test-1/' + file, 'r').read()))
 
     return treeArray
 
