@@ -26,7 +26,20 @@ def parse_uml():
     # Parse all files from directory
     treeArray = get_trees_from_dir(directory)
 
-    print("Tree: " + str(treeArray))
+    for file in treeArray:
+        for clas in file.type_declarations:
+            print(clas.modifiers)
+            print(clas.name)
+            print(clas.extends)
+            print(clas.implements)
+            print(clas.body)
+#           Iterract thru body elements
+            for element in clas.body:
+                for item in element.iter('modifiers'):
+                    print("FInaly")
+                print(element.type)
+                print(element.variable_declarators.variable.name)
+                print("END OF CLASS")
 
 def get_trees_from_dir(directory):
     # parse a compilation unit from a string
