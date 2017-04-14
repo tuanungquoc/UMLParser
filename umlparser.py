@@ -38,7 +38,7 @@ def parse_uml():
             for element in clas.body:
                 print(element.modifiers)
                 print(element.type)
-                print(element.variable_declarators.variable.name)
+
                 print("END OF CLASS")
 
 def get_trees_from_dir(directory):
