@@ -12,56 +12,12 @@
 import sys
 import javalang
 import os
-
-# Main Function
-#===================================================#
-def main(argv):
-
-    # Generate the report
-    filename = parse_uml()
-    generateUML(filename)
-
-# Methods
-#===================================================#
-def parse_uml():
-
-    directory = './SourceFiles/uml-parser-test-1'
-    # Parse all files from directory
-    treeArray = get_trees_from_dir(directory)
-
-    for file in treeArray:
-        # Class Level
-        # here we create the class boxes with fields or methods names
-        for clas in file.types:
-            print(clas.modifiers)
-            print(clas.name)
-            print(clas.extends)
-            print(clas.implements)
-            print(clas.body)
-#           Iterract thru body elements
-            for element in clas.body:
-                print(element.modifiers)
-                print(element.type)
-
-                print("END OF CLASS")
-
-
-
-def generateUML(filename):
-    pass
-
-# Setup and Initiation
-#===================================================#
-def usage():
-    print('usage: umlparser.py <source folder> <output file name>')
-    print('example: python3 umlparser.py /dir/Test.java /output/test.png')
-    exit(1)
-
-if __name__ == "__main__":
-    main(sys.argv[1:])
+from Clasess.Clas import Clas
 
 # Helper functions
 #===================================================#
+
+
 def get_trees_from_dir(directory):
     # parse a compilation unit from a string
 
@@ -79,4 +35,42 @@ def get_trees_from_dir(directory):
 
     return treeArray
 
+# Main Function
+#===================================================#
+def main(argv):
+
+    # Generate the report
+    filename = parse_uml()
+    generateUML(filename)
+
+# Methods
+#===================================================#
+def parse_uml():
+
+    directory = './SourceFiles/uml-parser-test-1'
+
+    # Parse all files from directory
+    treeArray = get_trees_from_dir(directory)
+
+    # Open text file and get handler
+    text_file = open("Output.txt", "w")
+
+    clas = Clas()
+    for file in treeArray:
+        # Class Level
+        # here we create the class boxes with fields or methods names
+        clas.add_class(file.types)
+
+def generateUML(filename):
+    pass
+
+# Setup and Initiation
+#===================================================#
+def usage():
+    print('usage: umlparser.py <source folder> <output file name>')
+    print('example: python3 umlparser.py /dir/Test.java /output/test.png')
+    exit(1)
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
 
