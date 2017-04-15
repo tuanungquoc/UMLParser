@@ -62,3 +62,9 @@ which takes a file and returns a java tree.  Initial test showed to be simple to
 * Once the files are parsed the function return an array of parsed trees
 * Next:  Set relations in the format of the UML generator.
 
+### Running the Class Diagram Generator from Command Line
+ * Need to be in the directory where the plantuml.jar file is located and execute the following command:
+```
+java -jar plantuml.jar class.txt
+```
+
