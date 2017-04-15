@@ -10,24 +10,28 @@
 #   Class Diagram in png format
 
 import sys
-import plyj.parser as plyj
 import javalang
 import os
 
-# CSV file columns
+# Main Function
+#===================================================#
+def main(argv):
 
-def usage():
-    print('usage: umlparser.py <source folder> <output file name>')
-    print('example: python3 umlparser.py /dir/Test.java /output/test.png')
-    exit(1)
+    # Generate the report
+    filename = parse_uml()
+    generateUML(filename)
 
+# Methods
+#===================================================#
 def parse_uml():
 
-    directory = './uml-parser-test-1'
+    directory = './SourceFiles/uml-parser-test-1'
     # Parse all files from directory
     treeArray = get_trees_from_dir(directory)
 
     for file in treeArray:
+        # Class Level
+        # here we create the class boxes with fields or methods names
         for clas in file.types:
             print(clas.modifiers)
             print(clas.name)
@@ -41,6 +45,23 @@ def parse_uml():
 
                 print("END OF CLASS")
 
+
+
+def generateUML(filename):
+    pass
+
+# Setup and Initiation
+#===================================================#
+def usage():
+    print('usage: umlparser.py <source folder> <output file name>')
+    print('example: python3 umlparser.py /dir/Test.java /output/test.png')
+    exit(1)
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
+
+# Helper functions
+#===================================================#
 def get_trees_from_dir(directory):
     # parse a compilation unit from a string
 
@@ -54,19 +75,8 @@ def get_trees_from_dir(directory):
             # Check if the file is a '.java' file
             if file.endswith(".java"):
                 # Parse and store tree in array
-                treeArray.append(javalang.parse.parse(open('./uml-parser-test-1/' + file, 'r').read()))
+                treeArray.append(javalang.parse.parse(open(directory+'/' + file, 'r').read()))
 
     return treeArray
-
-# Main
-def main(argv):
-
-    # Generate the report
-    parse_uml()
-
-if __name__ == "__main__":
-    main(sys.argv[1:])
-
-
 
 
