@@ -16,8 +16,8 @@ class Clas:
         print(clas.extends)
         print(clas.implements)
         print(clas.body)
-        #           Iterract thru body elements
-        print("Elements:")
+        # Iterract thru body elements
+        print("Class Properties:")
         for element in clas.body:
             print(element.modifiers)
             print(element.type)
