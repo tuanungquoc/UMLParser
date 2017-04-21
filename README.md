@@ -67,4 +67,10 @@ which takes a file and returns a java tree.  Initial test showed to be simple to
 ```
 java -jar plantuml.jar class.txt
 ```
+ * Alternatively the python script will execute the java jar file using a subprocess call:
+ ```
+ subprocess.call(['java', '-jar', 'plantuml.jar', 'Output.txt'])
+ ```
+
+
 
