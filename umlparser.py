@@ -12,6 +12,7 @@
 import sys
 import javalang
 import os
+import subprocess
 from Clasess.Clas import Clas
 
 # Helper functions
@@ -60,7 +61,9 @@ def parse_uml():
         # Class Level
         # here we create the class boxes with fields or methods names
         clas.add_class(file.types)
-
+    print("Finish")
+    clas.write_to_file(text_file)
+    subprocess.call(['java', '-jar', 'plantuml.jar', 'Output.txt'])
 def generateUML(filename):
     pass
 
