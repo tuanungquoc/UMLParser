@@ -29,10 +29,8 @@ class Clas:
                 "int_implements":int_implements,
                 "interface":interface
             }
-        print("END")
 
     def get_class_container(self, clas):
-        print(str(clas.name))
 
         # Only Include Private and Public Attributes
         attribute = {}
