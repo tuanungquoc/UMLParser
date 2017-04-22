@@ -64,6 +64,7 @@ def parse_uml(source_dir):
     plantuml = os.path.join(fulldir, 'plantuml.jar')
     output = os.path.join(fulldir, 'Output.txt')
     source = os.path.join(fulldir, source_dir)
+    final_output = os.path.join(fulldir, 'Output.png')
 
     # Parse all files from directory
     treeArray = get_trees_from_dir(source)
@@ -85,6 +86,7 @@ def parse_uml(source_dir):
     if my_file.is_file():
         print("Found it, Going to execute Java...")
         print(str(Popen(['java', '-jar', plantuml, output], cwd=dir)))
+        print("Output.png file can be found at: ", final_output)
     else:
         print("Output not found, aborting....")
 
