@@ -37,7 +37,7 @@ umlparser <source folder> <output file name>
  * To Run the application use the following commands on the terminal:
    1. usage: 'python3 umlparser.py <source folder>'
    ```
-   python3 /Path/To/UMLParser/umlparser.py /Path/To/TestCase/SourceFiles/uml-parser-test-1
+   python3 /Relative/Path/To/UMLParser/umlparser.py /Relative/Path/To/TestCase/SourceFiles/Directory
    ```
      i. Example:
      ```
