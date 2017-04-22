@@ -24,9 +24,13 @@ umlparser <source folder> <output file name>
    ```
     pip install javalang
    ```
-   3. Java 1.8+:  Follow these [Instructions: https://www.java.com/en/download/help/download_options.xml](https://www.java.com/en/download/help/download_options.xml)
+   3. Argparse
+   ```
+   pip install argparse
+   ```
+   4. Java 1.8+:  Follow these [Instructions: https://www.java.com/en/download/help/download_options.xml](https://www.java.com/en/download/help/download_options.xml)
 
-   4. GraphViz: Download installer from [GraphVix website: http://www.graphviz.org/Download..php](http://www.graphviz.org/Download..php) and run file to install.  Test Installation with:
+   5. GraphViz: Download installer from [GraphVix website: http://www.graphviz.org/Download..php](http://www.graphviz.org/Download..php) and run file to install.  Test Installation with:
    ```
    java -jar plantuml.jar -testdot
    ```
@@ -35,6 +39,10 @@ umlparser <source folder> <output file name>
    ```
    python3 /Path/To/UMLParser/umlparser.py /Path/To/TestCase/SourceFiles/uml-parser-test-1
    ```
+     i. Example:
+     ```
+     python3 Projects/cmpe202/UMLParser/umlparser.py -s Projects/cmpe202/UMLParser/SourceFiles/uml-parser-test-1
+     ```
    The output image file ('Output.png') will be rendered in the directory of the project.
 
 

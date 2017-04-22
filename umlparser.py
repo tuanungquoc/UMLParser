@@ -12,6 +12,7 @@
 import sys
 import javalang
 import os
+import argparse
 from subprocess import Popen
 from Clasess.Clas import Clas
 from pathlib import Path
@@ -40,13 +41,21 @@ def get_trees_from_dir(directory):
 #===================================================#
 def main(argv):
 
+    parser = argparse.ArgumentParser(description='Java to UML drawing converter')
+    parser.add_argument('-s', '--source', help='Path to the Java source file directory', required=True)
+    args = vars(parser.parse_args())
+
+    if not args["source"] :
+        usage()
+        return
+
     # Generate the report
-    filename = parse_uml()
+    filename = parse_uml(args["source"])
     generateUML(filename)
 
 # Methods
 #===================================================#
-def parse_uml():
+def parse_uml(source_dir):
 
     dir = os.path.dirname(__file__)
     fulldir = os.getcwd()+"/"+dir
@@ -54,7 +63,7 @@ def parse_uml():
     print("Full Dir: ", fulldir)
     plantuml = os.path.join(fulldir, 'plantuml.jar')
     output = os.path.join(fulldir, 'Output.txt')
-    source = os.path.join(fulldir, './SourceFiles/uml-parser-test-1')
+    source = os.path.join(fulldir, source_dir)
 
     # Parse all files from directory
     treeArray = get_trees_from_dir(source)
