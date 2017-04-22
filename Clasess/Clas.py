@@ -64,11 +64,11 @@ class Clas:
 
             if attr.type.name == "Collection":
                 attribute["type"] = attr.type.name + "<"+collection_name+">"
-                implements.append(attribute["type"])
+                implements.append(collection_name)
             else:
                 attribute["type"] = attr.type.name + dim
                 if any(x.isupper() for x in attribute["type"]):
-                    implements.append(attribute["type"])
+                    implements.append(attr.type.name)
 
             str_attr = str_attr + self.to_str(clas.name, attribute)
         return clas.name, implements, str_attr
@@ -80,7 +80,7 @@ class Clas:
             for item in clas.keys():
                 elements = clas[item]
                 if item == "container":
-                    fileHandler.write(elements+self.DOUBLE_NEWLINE)
+                    fileHandler.write(elements+self.NEWLINE)
                 if item == "extends":
                     for element in elements:
                         fileHandler.write(key+self.SP+self.EXTEND+self.SP+element+self.NEWLINE)

@@ -12,12 +12,12 @@
 import sys
 import javalang
 import os
-import subprocess
+from subprocess import Popen
 from Clasess.Clas import Clas
+from pathlib import Path
 
 # Helper functions
 #===================================================#
-
 
 def get_trees_from_dir(directory):
     # parse a compilation unit from a string
@@ -48,13 +48,19 @@ def main(argv):
 #===================================================#
 def parse_uml():
 
-    directory = './SourceFiles/uml-parser-test-1'
+    dir = os.path.dirname(__file__)
+    fulldir = os.getcwd()+"/"+dir
+    print("Directory ", dir)
+    print("Full Dir: ", fulldir)
+    plantuml = os.path.join(fulldir, 'plantuml.jar')
+    output = os.path.join(fulldir, 'Output.txt')
+    source = os.path.join(fulldir, './SourceFiles/uml-parser-test-1')
 
     # Parse all files from directory
-    treeArray = get_trees_from_dir(directory)
+    treeArray = get_trees_from_dir(source)
 
     # Open text file and get handler
-    text_file = open("Output.txt", "w")
+    text_file = open(output, "w")
 
     clas = Clas()
     for file in treeArray:
@@ -63,7 +69,16 @@ def parse_uml():
         clas.add_class(file.types)
     print("Finish")
     clas.write_to_file(text_file)
-    subprocess.call(['java', '-jar', 'plantuml.jar', 'Output.txt'])
+
+
+    my_file = Path(output)
+    print("Lets Check if Output.txt is available...")
+    if my_file.is_file():
+        print("Found it, Going to execute Java...")
+        print(str(Popen(['java', '-jar', plantuml, output], cwd=dir)))
+    else:
+        print("Output not found, aborting....")
+
 def generateUML(filename):
     pass
 

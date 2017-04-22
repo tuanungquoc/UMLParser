@@ -1,24 +1,20 @@
 @startuml
-D : private A  a
-
-
-D <.. A
-B : private A  a
-
-
-B <.. A
-C : private A  a
-
-
-C <.. A
 A : private int  x
 A : private int[]  y
 A : private Collection<B>  b
 A : private C  c
 A : private Collection<D>  d
 
-
-A <.. Collection<B>
+A <.. B
 A <.. C
-A <.. Collection<D>
+A <.. D
+D : private A  a
+
+D <.. A
+B : private A  a
+
+B <.. A
+C : private A  a
+
+C <.. A
 @enduml
