@@ -30,12 +30,12 @@ umlparser <source folder> <output file name>
    ```
    java -jar plantuml.jar -testdot
    ```
-  * To Run the application use the following commands on the terminal:
-    * usage: python3 umlparser.py <source folder>'
-  ```
-  python3 /Path/To/UMLParser/umlparser.py /Path/To/TestCase/SourceFiles/uml-parser-test-1
-  ```
-  The output image file ('Output.png') will be rendered in the directory of the project.
+ * To Run the application use the following commands on the terminal:
+   1. usage: 'python3 umlparser.py <source folder>'
+   ```
+   python3 /Path/To/UMLParser/umlparser.py /Path/To/TestCase/SourceFiles/uml-parser-test-1
+   ```
+   The output image file ('Output.png') will be rendered in the directory of the project.
 
 
 
