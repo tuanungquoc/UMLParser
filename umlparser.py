@@ -57,14 +57,32 @@ def main(argv):
 #===================================================#
 def parse_uml(source_dir):
 
+    print("Please check paths:")
+    print("====================")
+
     dir = os.path.dirname(__file__)
-    fulldir = os.getcwd()+"/"+dir
-    print("Directory ", dir)
-    print("Full Dir: ", fulldir)
+    print("Project Directory: ", dir)
+
+    fulldir = os.getcwd()+'/'+dir
+    print("Full Project Dir: ", fulldir)
+
+    current_dir = os.getcwd()
+    print("Current Directory: ", current_dir)
+
     plantuml = os.path.join(fulldir, 'plantuml.jar')
-    output = os.path.join(fulldir, 'Output.txt')
-    source = os.path.join(fulldir, source_dir)
+    print("Full Plantuml Dir: ", plantuml)
+
+    output = os.path.join(dir, 'Output.txt')
+    print("Output.txt: ", output)
+
+    sourceArray = [x for x in source_dir.split('/') if x]
+    new_source = '/'.join(sourceArray)
+    print("New Source: ", new_source)
+    source = os.path.join(current_dir, new_source)
+    print("Source files: ", source)
+
     final_output = os.path.join(fulldir, 'Output.png')
+    print("Output.png: ", final_output)
 
     # Parse all files from directory
     treeArray = get_trees_from_dir(source)
@@ -85,7 +103,7 @@ def parse_uml(source_dir):
     print("Lets Check if Output.txt is available...")
     if my_file.is_file():
         print("Found it, Going to execute Java...")
-        print(str(Popen(['java', '-jar', plantuml, output], cwd=dir)))
+        print(str(Popen(['java', '-jar', plantuml, output], cwd=os.getcwd())))
         print("Output.png file can be found at: ", final_output)
     else:
         print("Output not found, aborting....")
